@@ -1,55 +1,44 @@
 import React from 'react';
 import Router from 'react-router';
-var {Link, RouteHandler} = Router;
+import Sidebar from './organisms/Sidebar';
+var {RouteHandler} = Router;
 
 var App = React.createClass({
   getInitialState: function() {
     return {
-      locations: [
+      navigation: [
         {
-          abbr: 'FL',
-          name: 'Florida'
+          name: 'Sign Up',
+          route: '/signup'
         },
         {
-          abbr: 'CA',
-          name: 'California'
+          name: 'Log In',
+          route: '/login'
         },
         {
-          abbr: 'AK',
-          name: 'Alaska'
+          name: 'Dashboard',
+          route: '/dashboard'
+        },
+        {
+          name: 'Items',
+          route: '/items'
+        },
+        {
+          name: 'Account',
+          route: '/account'
+        },
+        {
+          name: 'Search',
+          route: '/search'
         }
       ]
     };
   },
 
   render: function () {
-    this.state.locations.sort(function(a, b) {
-      if (a.name < b.name) {
-        return -1;
-      } else if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    });
-
-    var links = this.state.locations.map(function(location) {
-      return (
-        <li key={location.abbr}>
-          <Link
-            to="location-detail"
-            params={{ abbr: location.abbr }}
-          >{location.name}</Link>
-        </li>
-      );
-    });
-
     return (
       <div className="App">
-        <ul className="Primary-Navigation">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="location-list">All Locations</Link></li>
-          {links}
-        </ul>
+        <Sidebar navigation={this.state.navigation}/>
 
         <div className="Primary-Content">
           <RouteHandler/>

@@ -1,17 +1,17 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
-/public/js
-/public/css
-/dist
-/docs
-
 # dependencies
 /node_modules
 /bower_components
 
-# misc
-npm-debug.log
-
 # executables
 /tests/e2e/bin
+
+# compiled output
+/public/scripts
+/public/styles
+/dist
+/docs
+
+# misc
+npm-debug.log

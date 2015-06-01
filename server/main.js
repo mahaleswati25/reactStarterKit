@@ -5,10 +5,10 @@ var PORT = 8743;
 // Serve static content, such as JS, CSS and images.
 app.use(express.static(__dirname + '/../public'));
 
-// Any GET request that isn't an image, stylesheet or script
-// will respond with the main index.html file. This lets the
-// client-side router handle application routing.
-app.get(/^(\/)(?!.*css|js|img).*/, function(req, res, next) {
+// Any GET request that isn't an image, stylesheet, script or
+// font will respond with the main index.html file. This lets
+// the client-side router handle application routing.
+app.get(/^(\/)(?!.*fonts|img|scripts|styles).*/, function(req, res, next) {
   res.sendFile('index.html', {
     root: __dirname + '/../public/'
   });
