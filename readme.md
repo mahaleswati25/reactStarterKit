@@ -1,3 +1,5 @@
+To run this: just npm install, then gulp watch
+
 ## TODO
 - http://cssnext.io/
 - https://github.com/QubitProducts/react-test-tree
